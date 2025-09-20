@@ -1,94 +1,333 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人首页</title>
+    <title>Tech Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./swiper-bundle.min.css" />
+    <script src="./swiper-bundle.min.js"></script>
     <style>
-        .parallax {
-            width: 100%;
-            height: 80vh;
+        .swiper {
             position: relative;
-            overflow: hidden;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: top center;
-            background-attachment: fixed;
-            line-height: 80vh;
-        }
-        .p1 {
-            background-image: url('./static/bg1.png');
-        }
-        .p2 {
-            background-image: url('./static/bg2.png');
-        }
-        .p3 {
-            background-image: url('./static/bg3.png');
-        }
-        .p4 {
-            background-image: url('./static/bg4.png');
-        }
-        .p5 {
-            background-image: url('./static/bg5.png');
-        }
-        .content {
+            height: 500px;
             width: 100%;
-            height: 20vh;
-            margin: 0 auto;
-            text-align: justify;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background: linear-gradient(200deg, #2b5876, #033557);
         }
-        h3 {
-            font-size: 45px;
-            letter-spacing: 10px;
-            text-align: center;
-            color: #fff;
-            font-weight: 400;
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            width: 44px !important;
+            height: 44px !important;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: background 0.3s;
         }
-        p {
-            color: #eee;
-            font-size: 16px;
-            line-height: 28px;
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px !important;
+        }
+        .swiper-pagination-bullet {
+            background: white !important;
+            opacity: 0.5;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+        .slide-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .swiper-slide-active .slide-content {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.3s;
+        }
+        .animated-circle {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-image {
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover .product-image {
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body>
-    <div class="parallax p1">
-        <div class="content">
-            <h3>鬼刀</h3>
-            <p>这是第一部分的内容。</p>
+<body class="min-h-screen overflow-x-hidden">
+    <!-- Hero Carousel -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide bg-gradient-to-b from-blue-900 to-blue-700">
+                <div class="container mx-auto px-4 h-full flex items-center">
+                    <div class="relative w-full">
+                        <div class="absolute left-20 top-1/2 -translate-y-1/2">
+                            <div class="w-40 h-40 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                                <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center">
+                                    <div class="w-10 h-10 rounded-full bg-white/30 animated-circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="max-w-2xl ml-auto slide-content">
+                            <h1 class="text-4xl font-bold mb-4 text-white">生鲜全产业链的安全闭环</h1>
+                            <div class="flex flex-wrap gap-4 mt-8">
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">物联网</div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">人工智能</div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">区块链</div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">大数据</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide bg-gradient-to-b from-indigo-900 to-indigo-700">
+                <div class="container mx-auto px-4 h-full flex items-center">
+                    <div class="relative w-full">
+                        <div class="absolute left-20 top-1/2 -translate-y-1/2">
+                            <div class="w-40 h-40 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                                <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center">
+                                    <div class="w-10 h-10 rounded-full bg-white/30 animated-circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="max-w-2xl ml-auto slide-content">
+                            <h1 class="text-4xl font-bold mb-4 text-white">智能科技创新未来</h1>
+                            <div class="flex flex-wrap gap-4 mt-8">
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">智慧城市</div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">智能制造</div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">数字经济</div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">绿色发展</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide bg-gradient-to-b from-purple-900 to-purple-700">
+                <div class="container mx-auto px-4 h-full flex items-center">
+                    <div class="relative w-full">
+                        <div class="absolute left-20 top-1/2 -translate-y-1/2">
+                            <div class="w-40 h-40 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                                <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center">
+                                    <div class="w-10 h-10 rounded-full bg-white/30 animated-circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="max-w-2xl ml-auto slide-content">
+                            <h1 class="text-4xl font-bold mb-4 text-white">数字化转型引领者</h1>
+                            <div class="flex flex-wrap gap-4 mt-8">
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">云计算</div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">边缘计算</div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">数据安全</div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">智能分析</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
     </div>
-    <div class="parallax p2">
-        <div class="content">
-            <h3>海琴烟（冰公主）</h3>
-            <p>海琴国王于冰川捡到的女孩，有着深蓝色的眼眸以及眼角下的一颗泪痣，感受不到寒冷，可以于动物交流。</p>
+
+    <!-- Products & Services -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12 fade-in-up">产品服务</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="product-card fade-in-up bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="overflow-hidden rounded-lg mb-4">
+                            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="智能家居系统" class="product-image w-full h-48 object-cover transition-transform duration-300">
+                        </div>
+                        <h3 class="product-title text-xl font-bold mb-2 transition-colors duration-300">智能家居系统</h3>
+                        <p class="product-description text-gray-600 transition-colors duration-300">打造智能、舒适的生活空间</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in-up bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="overflow-hidden rounded-lg mb-4">
+                            <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="食品安全监控" class="product-image w-full h-48 object-cover transition-transform duration-300">
+                        </div>
+                        <h3 class="product-title text-xl font-bold mb-2 transition-colors duration-300">食品安全监控</h3>
+                        <p class="product-description text-gray-600 transition-colors duration-300">确保食品从农场到餐桌的全程安全</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in-up bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="overflow-hidden rounded-lg mb-4">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="智慧零售解决方案" class="product-image w-full h-48 object-cover transition-transform duration-300">
+                        </div>
+                        <h3 class="product-title text-xl font-bold mb-2 transition-colors duration-300">智慧零售解决方案</h3>
+                        <p class="product-description text-gray-600 transition-colors duration-300">提升购物体验，优化库存管理</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="parallax p3">
-        <div class="content">
-            <h3>鬼刀</h3>
-            <p>诺拉大陆最恐怖的杀手。曾在黑山之战中斩杀上将魁七，十万铁甲拖不住他一步。也曾以一己之力瓦解了大陆上最大的杀手联盟，当时名震江湖的杀手西凌斯在他手下没能撑过三招。</p>
+    </section>
+
+    <!-- News Center -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12 fade-in-up">新闻中心</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div class="fade-in-up flex gap-4 items-center">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="我公司推出新一代AI助手" class="w-[150px] h-[100px] rounded object-cover">
+                        <div>
+                            <h3 class="font-bold">我公司推出新一代AI助手</h3>
+                            <p class="text-gray-500 text-sm">2023-11-20</p>
+                        </div>
+                    </div>
+                    <div class="fade-in-up flex gap-4 items-center">
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="智慧城市项目取得重大突破" class="w-[150px] h-[100px] rounded object-cover">
+                        <div>
+                            <h3 class="font-bold">智慧城市项目取得重大突破</h3>
+                            <p class="text-gray-500 text-sm">2023-11-18</p>
+                        </div>
+                    </div>
+                    <div class="fade-in-up flex gap-4 items-center">
+                        <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="公司荣获年度科技创新奖" class="w-[150px] h-[100px] rounded object-cover">
+                        <div>
+                            <h3 class="font-bold">公司荣获年度科技创新奖</h3>
+                            text-sm">2023-11-15</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2944&q=80" alt="科技新闻图片 1" class="fade-in-up rounded-lg object-cover w-full h-[200px]">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="科技新闻图片 2" class="fade-in-up rounded-lg object-cover w-full h-[200px]">
+                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MD&auto=format&fit=crop&w=2940&q=80" alt="科技新闻图片 3" class="fade-in-up rounded-lg object-cover w-full h-[200px]">
+                    <img src="https://images.unsplash.com/photo-1488229297570-58520851e868?ixlib=rb-4.0.3&ixid=MD&auto=format&fit=crop&w=2938&q=80" alt="科技新闻图片 4" class="fade-in-up rounded-lg object-cover w-full h-[200px]">
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="parallax p4">
-        <div class="content">
-            <h3>风铃</h3>
-            <p>北漠公主，前任北王洪都的独生女。自幼从父习武，武艺高强。聪明伶俐又能歌善舞，曾以一曲风蝶之舞名扬天下。</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-orange-500 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold mb-4">联系我们</h3>
+                    <p>守护PICC人寿最重要的资产</p>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">导航栏</h3>
+                    <ul class="space-y-2">
+                        <li>首页</li>
+                        <li>关于我们</li>
+                        <li>新闻资讯</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">联系方式</h3>
+                    <p>电话：123456789</p>
+                    <p>邮箱：info@example.com</p>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">关注我们</h3>
+                    <div class="w-32 h-32 bg-white rounded-lg"></div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="parallax p5">
-        <div class="content">
-            <h3>标题5</h3>
-            <p>这是第五部分的内容。</p>
-        </div>
-    </div>
-</body>
-</html>
-    </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Swiper
+            const swiper = new Swiper('.swiper', {
+                loop: true,
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+            // 添加防抖函数
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // 只有当元素完全进入或完全离开时才触发
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                        entry.target.classList.add('visible');
+                    } else if (!entry.isIntersecting && entry.intersectionRatio < 0.1) {
+                        const reset = debounce(() => {
+                            entry.target.classList.remove('visible');
+                            entry.target.style.transition = 'none';
+                            entry.target.offsetHeight;
+                            entry.target.style.transition = '';
+                        }, 150); // 150ms 的防抖延迟
+                        reset();
+                    }
+                });
+            }, {
+                threshold: [0, 0.1, 0.5, 1.0], // 添加多个阈值
+                rootMargin: '-50px 0px' // 添加一些边距，避免在边缘触发
+            });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
