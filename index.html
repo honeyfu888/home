@@ -3,9 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>个人首页</title>
+    <style>
+        .parallax {
+            width: 100%;
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top center;
+            background-attachment: fixed;
+            line-height: 80vh;
+        }
+        .p1 {
+            background-image: url('./static/bg1.png');
+        }
+        .p2 {
+            background-image: url('./static/bg2.png');
+        }
+        .p3 {
+            background-image: url('./static/bg3.png');
+        }
+        .p4 {
+            background-image: url('./static/bg4.png');
+        }
+        .p5 {
+            background-image: url('./static/bg5.png');
+        }
+        .content {
+            width: 100%;
+            height: 20vh;
+            margin: 0 auto;
+            text-align: justify;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: linear-gradient(200deg, #2b5876, #033557);
+        }
+        h3 {
+            font-size: 45px;
+            letter-spacing: 10px;
+            text-align: center;
+            color: #fff;
+            font-weight: 400;
+        }
+        p {
+            color: #eee;
+            font-size: 16px;
+            line-height: 28px;
+        }
+    </style>
 </head>
 <body>
-    <h1>你好世界</h1>
+    <div class="parallax p1">
+        <div class="content">
+            <h3>鬼刀</h3>
+            <p>这是第一部分的内容。</p>
+        </div>
+    </div>
+    <div class="parallax p2">
+        <div class="content">
+            <h3>海琴烟（冰公主）</h3>
+            <p>海琴国王于冰川捡到的女孩，有着深蓝色的眼眸以及眼角下的一颗泪痣，感受不到寒冷，可以于动物交流。</p>
+        </div>
+    </div>
+    <div class="parallax p3">
+        <div class="content">
+            <h3>鬼刀</h3>
+            <p>诺拉大陆最恐怖的杀手。曾在黑山之战中斩杀上将魁七，十万铁甲拖不住他一步。也曾以一己之力瓦解了大陆上最大的杀手联盟，当时名震江湖的杀手西凌斯在他手下没能撑过三招。</p>
+        </div>
+    </div>
+    <div class="parallax p4">
+        <div class="content">
+            <h3>风铃</h3>
+            <p>北漠公主，前任北王洪都的独生女。自幼从父习武，武艺高强。聪明伶俐又能歌善舞，曾以一曲风蝶之舞名扬天下。</p>
+        </div>
+    </div>
+    <div class="parallax p5">
+        <div class="content">
+            <h3>标题5</h3>
+            <p>这是第五部分的内容。</p>
+        </div>
+    </div>
+</body>
+</html>
+    </div>
 </body>
 </html>

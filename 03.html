@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./swiper-bundle.min.css" />
+    <script src="./swiper-bundle.min.js"></script>
+    <style>
+        .swiper {
+            position: relative;
+            height: 500px;
+            width: 100%;
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            width: 44px !important;
+            height: 44px !important;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px !important;
+        }
+        .swiper-pagination-bullet {
+            background: white !important;
+            opacity: 0.5;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+        .slide-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .swiper-slide-active .slide-content {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.3s;
+        }
+        .animated-circle {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: none;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-image {
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+    <!-- Hero Carousel -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <!-- Swiper slides content remains unchanged -->
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <!-- Products & Services -->
+    <section class="py-20 bg-gray-50">
+        <!-- Products & Services content remains unchanged -->
+    </section>
+
+    <!-- News Center -->
+    <section class="py-20 bg-white">
+        <!-- News Center content remains unchanged -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-orange-500 text-white py-12">
+        <!-- Footer content remains unchanged -->
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Swiper
+            const swiper = new Swiper('.swiper', {
+                loop: true,
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Reset the animation
+                        entry.target.style.animation = 'none';
+                        entry.target.offsetHeight; // Trigger reflow
+                        entry.target.style.animation = null;
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

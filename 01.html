@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./swiper-bundle.min.css" />
+    <script src="./swiper-bundle.min.js"></script>
+    <style>
+        .swiper {
+            position: relative;
+            height: 500px;
+            width: 100%;
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            width: 44px !important;
+            height: 44px !important;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px !important;
+        }
+        .swiper-pagination-bullet {
+            background: white !important;
+            opacity: 0.5;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-image {
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+    <!-- Hero Carousel -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide bg-gradient-to-b from-blue-900 to-blue-700">
+                <div class="container mx-auto px-4 h-full flex items-center">
+                    <div class="relative w-full">
+                        <div class="absolute left-20 top-1/2 -translate-y-1/2">
+                            <div class="w-40 h-40 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                                <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center">
+                                    <div class="w-10 h-10 rounded-full bg-white/30 animate-pulse"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="max-w-2xl ml-auto">
+                            <h1 class="text-4xl font-bold mb-4 text-white">生鲜全产业链的安全闭环</h1>
+                            <div class="flex flex-wrap gap-4 mt-8">
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">物联网</div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">人工智能</div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">区块链</div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white">大数据</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional slides with the same structure -->
+            <div class="swiper-slide bg-gradient-to-b from-indigo-900 to-indigo-700">
+                <!-- Similar content structure -->
+            </div>
+            <div class="swiper-slide bg-gradient-to-b from-purple-900 to-purple-700">
+                <!-- Similar content structure -->
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <!-- Products & Services -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12">产品服务</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="智能家居系统" class="w-full h-48 object-cover transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">智能家居系统</h3>
+                        <p class="text-gray-600">打造智能、舒适的生活空间</p>
+                    </div>
+                </div>
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="食品安全监控" class="w-full h-48 object-cover transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">食品安全监控</h3>
+                        <p class="text-gray-600">确保食品从农场到餐桌的全程安全</p>
+                    </div>
+                </div>
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="智慧零售解决方案" class="w-full h-48 object-cover transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">智慧零售解决方案</h3>
+                        <p class="text-gray-600">提升购物体验，优化库存管理</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Center -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12">新闻中心</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div class="flex gap-4 items-center">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="我公司推出新一代AI助手" class="w-36 h-24 object-cover rounded">
+                        <div>
+                            <h3 class="font-bold">我公司推出新一代AI助手</h3>
+                            <p class="text-gray-500 text-sm">2023-11-20</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-center">
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="智慧城市项目取得重大突破" class="w-36 h-24 object-cover rounded">
+                        <div>
+                            <h3 class="font-bold">智慧城市项目取得重大突破</h3>
+                            <p class="text-gray-500 text-sm">2023-11-18</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-center">
+                        <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="公司荣获年度科技创新奖" class="w-36 h-24 object-cover rounded">
+                        <div>
+                            <h3 class="font-bold">公司荣获年度科技创新奖</h3>
+                            <p class="text-gray-500 text-sm">2023-11-15</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2944&q=80" alt="科技新闻图片 1" class="w-full h-40 object-cover rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="科技新闻图片 2" class="w-full h-40 object-cover rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="科技新闻图片 3" class="w-full h-40 object-cover rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1488229297570-58520851e868?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2938&q=80" alt="科技新闻图片 4" class="w-full h-40 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-orange-500 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold mb-4">联系我们</h3>
+                    <p>守护PICC人寿最重要的资产</p>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">导航栏</h3>
+                    <ul class="space-y-2">
+                        <li>首页</li>
+                        <li>关于我们</li>
+                        <li>新闻资讯</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">联系方式</h3>
+                    <p>电话：123456789</p>
+                    <p>邮箱：info@example.com</p>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">关注我们</h3>
+                    <div class="w-32 h-32 bg-white rounded-lg"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Swiper
+            const swiper = new Swiper('.swiper', {
+                loop: true,
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Product card hover effect
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                    card.querySelector('img').style.transform = 'scale(1.05)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.querySelector('img').style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
